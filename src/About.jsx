@@ -2,10 +2,6 @@ import React from "react"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
 
 const AboutMe = () => {
-  const handleLogoClick = () => {
-    window.location.reload()
-  }
-
   return (
     <div className="grid grid-cols-3 h-[calc(100vh-80px)]">
       <div className="my-10 mx-16  gap-2 col-span-2">
@@ -14,7 +10,7 @@ const AboutMe = () => {
           <br /><br />
           Gosto de aprender, colaborar com pessoas e transformar ideias em experiências digitais de verdade. Se quiser conversar ou criar algo juntos, estou por aqui! :)</p>
         <button className="flex items-center gap-4 mt-8 h-auto w-auto text-white rounded-3xl px-4 py-2 bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 font-medium">
-          Carta de Apresentação <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold"/>
+          Carta de Apresentação <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
         </button>
       </div>
       <div className="col-span-1"> aaaaaa</div>
