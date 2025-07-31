@@ -7,9 +7,9 @@ const Home = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 h-auto md:h-[calc(100vh-80px)]">
             <div className="my-10 mx-8 md:mx-16 flex flex-col gap-4 md:col-span-2">
-                <h1 className="font-medium text-4xl">Olá, eu sou a Misha!</h1>
-                <h2 className="font-bold text-6xl">WEB <span className="text-[#AE11A9]">DEVELOPER</span></h2>
-                <p className="text-xl">apresentação</p>
+                <h1 className="font-medium text-3xl sm:text-4xl">Olá, eu sou a Misha!</h1>
+                <h2 className="font-bold text-5xl sm:text-6xl">WEB <span className="text-[#AE11A9]">DEVELOPER</span></h2>
+                <p className="text-lg sm:text-xl">apresentação</p>
 
                 <div className="flex flex-row gap-4">
                     <a
