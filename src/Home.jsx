@@ -20,13 +20,13 @@ const Home = () => {
                         Meu currículo <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
                     </button> */}
                     <a
-  href="https://1drv.ms/b/c/c2fafabc8a7a4034/EVxnNJWx-QpPhzLhT-C6J08Bc9zHJJLtbCkshBEa1yayiw?e=HbjsKw"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-3xl px-4 py-2 bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 font-medium"
->
-  Meu currículo <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
-</a>
+                        href="https://1drv.ms/b/c/c2fafabc8a7a4034/EVxnNJWx-QpPhzLhT-C6J08Bc9zHJJLtbCkshBEa1yayiw?e=HbjsKw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-3xl px-4 py-2 bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 font-medium"
+                    >
+                        Meu currículo <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
+                    </a>
 
                 </div>
             </div>

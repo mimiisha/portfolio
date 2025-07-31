@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
+import logo from "./imgs/logomisha.png"
 
 const NavBar = () => {
   const location = useLocation()
@@ -9,28 +10,29 @@ const NavBar = () => {
   //   window.location.reload()
   // }
   const handleLogoClick = () => {
-    navigate("/home")
+    navigate("/")
     setTimeout(() => {
       window.location.reload()
     }, 100)
   }
 
   const navItems = [
-    { label: "Home", path: "/home" },
+    { label: "Home", path: "/" },
     { label: "Sobre", path: "/sobre" },
+    { label: "Contato", path: "/contato" },
   ]
 
   return (
-    <header className="bg-[#F8F8F8] sticky top-0 z-50">
+    <header className="bg-black sticky top-0 z-50">
       <nav className="grid grid-cols-5 justify-start items-center h-[80px] mx-7">
         <div className="col-span-2 hover:cursor-pointer" onClick={handleLogoClick}>
-          logo
+          <img src={logo} alt="Minha Foto" className="w-auto h-auto object-cover" />
         </div>
         <ul className="flex gap-8 mr-12 col-span-2">
           {navItems.map((item) => (
             <li
               key={item.path}
-              className={`hover:underline underline-offset-[5px] transition-opacity duration-300 ${location.pathname === item.path ? "opacity-100 underline underline-offset-[5px]" : "opacity-50"
+              className={`text-white hover:underline underline-offset-[5px] transition-all duration-300 ${location.pathname === item.path ? "opacity-100 underline underline-offset-[5px]" : "opacity-50"
                 }`}
             >
               <Link to={item.path}>{item.label}</Link>
