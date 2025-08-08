@@ -1,12 +1,65 @@
-import React from "react"
-import { WhatsappLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react"
+import React, { useRef } from "react"
+import { LogoInsta, LogoLinkedin, LogoZap } from "./svgs/Images"
+import emailjs from '@emailjs/browser'
 
 const Home = () => {
+    const form = useRef()
+
+    const enviarEmail = (e) => {
+        e.preventDefault()
+
+        emailjs.sendForm('service_sy1h11w', 'template_pygkxlp', form.current, 'EJ9jNFgI_lFBXwS_r')
+            .then((result) => {
+                alert('Mensagem enviada!')
+                form.current.reset()
+            }, (error) => {
+                alert('Erro ao enviar, tente novamente')
+            })
+    }
+
     return (
-        <div className="flex justify-center h-[calc(100vh-80px)]">
-            <div className="my-10 mx-16 flex gap-24">
-                <WhatsappLogoIcon className="w-14 h-14" />
-                <LinkedinLogoIcon className="w-14 h-14" />
+        <div>
+            <div className="my-10 mx-16 flex justify-center flex-col items-center gap-10">
+                Minhas Redes
+                <div className="flex gap-24">
+                    <a href="https://wa.me/5511950776623?text=Ol%C3%A1%2C%20Misha!%20Gostaria%20de%20conversar%20sobre%2E%2E%2E" target="_blank" rel="noopener noreferrer">
+                        <LogoZap className="w-14 h-14 hover:cursor-pointer" />
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        <LogoInsta className="w-14 h-14 hover:cursor-pointer" />
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        <LogoLinkedin className="w-14 h-14 hover:cursor-pointer" />
+                    </a>
+
+                </div>
+            </div>
+            <div className="bg-black px-24 py-20 flex flex-col text-white justify-center items-center gap-6">
+                <section id="contactFormContainer" className="flex flex-col gap-4 h-auto w-500px md:w-[800px] p-4">
+                    <form ref={form} onSubmit={enviarEmail} className="flex flex-col gap-4">
+                        <div className="mb-8 flex flex-row gap-10 justify-center">
+                            <div className="w-full input-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" className="py-2 px-4 rounded-xl text-black w-full" placeholder="Digite seu nome" required />
+                            </div>
+                            <div class="input-group input-group" className="w-full input-group">
+                                <label for="email">E-mail</label>
+                                <input type="text" id="email" name="email" className="py-2 px-4 rounded-xl text-black w-full" placeholder="Digite seu e-mail" required />
+                            </div>
+                        </div>
+                        <div>
+                            <label className="input-group" for="subject">Assunto</label>
+                            <input type="text" className="py-2 px-4 rounded-xl text-black w-full" placeholder="Digite o assunto" name="subject" required />
+                        </div>
+                        <div>
+                            <label className="input-group" for="message">Mensagem</label>
+                            <textarea className="py-2 px-4 rounded-xl text-black w-full h-[100px] min-h-[40px]" placeholder="Digite a mensagem" rows="5" name="message" required />
+                        </div>
+                        <div className="flex justify-center items-center mt-4">
+                            <button type="submit" className="py-2 px-4 rounded-xl w-60 bg-cyan-600 text-white font-medium">Enviar mensagem</button>
+                        </div>
+                    </form>
+                </section>
             </div>
         </div>
     )
