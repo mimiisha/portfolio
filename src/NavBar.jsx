@@ -15,6 +15,15 @@ const NavBar = () => {
     }, 100)
   }
 
+  const openWhatsApp = () => {
+    const numero = "5511950776623"
+    const mensagem = "Olá, Misha! Gostaria de conversar sobre..."
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`
+
+    window.open(url, "_blank")
+  }
+
+
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Sobre", path: "/sobre" },
@@ -39,7 +48,7 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <button className="hidden md:block h-auto px-4 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+        <button onClick={openWhatsApp} className="hidden md:block h-auto px-4 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
           Vamos conversar
         </button>
 
@@ -51,24 +60,30 @@ const NavBar = () => {
         </button>
       </nav>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden flex flex-col items-center gap-6 pb-6 bg-black text-white text-lg">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`hover:underline underline-offset-[5px] transition-all duration-300 ${location.pathname === item.path ? "opacity-100 underline" : "opacity-50"
-                }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <button className="h-auto px-6 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
-            Vamos conversar
-          </button>
-        </div>
-      )}
+      <div
+        className={`md:hidden flex flex-col items-center gap-6 bg-black text-white text-lg transform transition-all duration-300 ease-in-out origin-top absolute top-[80px] left-0 w-full z-40 ${isMobileMenuOpen
+          ? "max-h-96 opacity-100 scale-y-100 py-6"
+          : "max-h-0 opacity-0 scale-y-0 overflow-hidden"
+          }`}
+      >
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`hover:underline underline-offset-[5px] transition-all duration-300 ${location.pathname === item.path
+              ? "opacity-100 underline"
+              : "opacity-50"
+              }`}
+          >
+            {item.label}
+          </Link>
+        ))}
+        <button onClick={openWhatsApp} className="h-auto px-6 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+          Vamos conversar
+        </button>
+      </div>
+
     </header>
   )
 }
