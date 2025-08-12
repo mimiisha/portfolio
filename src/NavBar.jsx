@@ -16,17 +16,17 @@ const NavBar = () => {
   }
 
   const openWhatsApp = () => {
-    const numero = "5511950776623"
-    const mensagem = "Olá, Misha! Gostaria de conversar sobre..."
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`
+    const number = "5511950776623"
+    const message = "Olá, Misha! Gostaria de conversar sobre..."
+    const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 
     window.open(url, "_blank")
   }
 
-
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Sobre", path: "/sobre" },
+    { label: "Portfolio", path: "/portfolio" },
     { label: "Contato", path: "/contato" },
   ]
 
@@ -48,7 +48,7 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <button onClick={openWhatsApp} className="hidden md:block h-auto px-4 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+        <button onClick={openWhatsApp} className="hidden md:block h-auto px-4 py-2 rounded-full bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
           Vamos conversar
         </button>
 
@@ -79,7 +79,7 @@ const NavBar = () => {
             {item.label}
           </Link>
         ))}
-        <button onClick={openWhatsApp} className="h-auto px-6 py-2 rounded-3xl bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+        <button onClick={openWhatsApp} className="h-auto px-6 py-2 rounded-full bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
           Vamos conversar
         </button>
       </div>
