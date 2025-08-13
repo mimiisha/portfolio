@@ -52,27 +52,30 @@ const Contact = () => {
     }
 
     return (
-        <div>
-            <div className="my-10 mx-16 flex justify-center flex-col items-center gap-10 font-semibold text-2xl md:text-4xl">
+        <div className="bg-backgound min-h-screen pb-10">
+            <div className="pt-10 pb-10 mx-16 flex justify-center flex-col items-center gap-10 font-semibold text-2xl md:text-4xl text-details">
                 Minhas Redes
                 <div className="flex gap-24">
                     <a href="https://wa.me/5511950776623?text=Ol%C3%A1%2C%20Misha!%20Gostaria%20de%20conversar%20sobre%2E%2E%2E" target="_blank" rel="noopener noreferrer">
-                        <LogoZap className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-[#AE11A9] hover:text-[#7B0578] transition-all duration-300" />
+                        <LogoZap className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
                     </a>
                     <a href="https://www.instagram.com/imnotmiisha?igsh=MWxjZG5yejJheGVteQ==" target="_blank" rel="noopener noreferrer">
-                        <LogoInsta className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-[#AE11A9] hover:text-[#7B0578] transition-all duration-300" />
+                        <LogoInsta className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
                     </a>
                     <a href="https://www.linkedin.com/in/danielle-cordeiro-%E3%85%A4-33543b250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
-                        <LogoLinkedin className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-[#AE11A9] hover:text-[#7B0578] transition-all duration-300" />
+                        <LogoLinkedin className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
                     </a>
 
                 </div>
             </div>
-            <div className="bg-black px-24 py-12 flex flex-col text-white justify-center items-center gap-6">
-                <section
-                    id="contactFormContainer"
-                    className="flex flex-col gap-4 h-auto w-[350px] md:w-[800px] p-4"
-                >
+            <div className="bg-bgSecondary px-24 py-12 flex flex-col text-details justify-center items-center gap-6 relative overflow-hidden mb-10">
+                <div className="absolute top-0 left-0 right-0 h-12 
+                 bg-gradient-to-b from-backgound/70 to-transparent 
+                 backdrop-blur-sm"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-12 
+                 bg-gradient-to-t from-backgound/70 to-transparent 
+                 backdrop-blur-sm"></div>
+                <section className="flex flex-col gap-4 h-auto w-[350px] md:w-[800px] p-4 relative z-10">
                     <form ref={form} onSubmit={enviarEmail} className="flex flex-col gap-4">
                         <h2 className="font-semibold text-lg md:text-2xl flex justify-center md:mb-2">
                             Entre em contato
@@ -146,7 +149,7 @@ const Contact = () => {
                         <div className="flex justify-center items-center mt-4">
                             <button
                                 type="submit"
-                                className="py-2 px-4 rounded-full w-60 bg-cyan-500 hover:bg-cyan-700 transition-all duration-300 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-500"
+                                className="py-2 px-4 rounded-full w-60 bg-details hover:bg-hoverDetail transition-all duration-300 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-details"
                                 disabled={!isFormValid()}
                             >
                                 Enviar mensagem

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ListIcon, XIcon } from "@phosphor-icons/react"
 import logo from "./imgs/logomisha.png"
@@ -7,6 +7,20 @@ const NavBar = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHasScrolled(true)
+      } else {
+        setHasScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleLogoClick = () => {
     navigate("/")
@@ -31,7 +45,7 @@ const NavBar = () => {
   ]
 
   return (
-    <header className="bg-black sticky top-0 z-50">
+    <header className={`bg-backgound sticky top-0 z-50 transition-shadow duration-300 overflow-visible ${hasScrolled ? 'shadow-nav-scroll' : ''}`}>
       <nav className="flex justify-between items-center h-[80px] px-6 md:px-12">
         <div className="hover:cursor-pointer" onClick={handleLogoClick}>
           <img src={logo} alt="Logo" className="w-auto h-10 object-contain" />
@@ -48,7 +62,7 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <button onClick={openWhatsApp} className="hidden md:block h-auto px-4 py-2 rounded-full bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+        <button onClick={openWhatsApp} className="hidden md:block h-auto px-4 py-2 rounded-full bg-primaryButton hover:bg-hoverPB transition-all duration-300 text-white font-semibold">
           Vamos conversar
         </button>
 
@@ -61,8 +75,8 @@ const NavBar = () => {
       </nav>
 
       <div
-        className={`md:hidden flex flex-col items-center gap-6 bg-black text-white text-lg transform transition-all duration-300 ease-in-out origin-top absolute top-[80px] left-0 w-full z-40 ${isMobileMenuOpen
-          ? "max-h-96 opacity-100 scale-y-100 py-6"
+        className={`md:hidden flex flex-col items-center gap-6 bg-backgound text-white text-lg transform transition-all duration-300 ease-in-out origin-top absolute top-[80px] left-0 w-full z-40 ${isMobileMenuOpen
+          ? "max-h-96 opacity-100 scale-y-100 py-6 shadow-nav-scroll"
           : "max-h-0 opacity-0 scale-y-0 overflow-hidden"
           }`}
       >
@@ -79,11 +93,10 @@ const NavBar = () => {
             {item.label}
           </Link>
         ))}
-        <button onClick={openWhatsApp} className="h-auto px-6 py-2 rounded-full bg-[#AE11A9] hover:bg-[#7B0578] transition-all duration-300 text-white font-medium">
+        <button onClick={openWhatsApp} className="h-auto px-6 py-2 rounded-full bg-primaryButton hover:bg-hoverPB transition-all duration-300 text-white font-semibold">
           Vamos conversar
         </button>
       </div>
-
     </header>
   )
 }
