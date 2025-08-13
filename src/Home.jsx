@@ -16,16 +16,16 @@ const Home = () => {
                         href="https://github.com/mimiisha"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex justify-center items-center mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-secondaryButton hover:bg-[#8C848B] transition-all duration-300 font-semibold"
+                        className="flex justify-center items-center mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-secondaryButton hover:bg-hoverSB transition-all duration-300 font-semibold text-xs md:text-base"
                     >
-                        Projetos <CodeIcon className="text-white w-5 h-5 ml-2" weight="bold" />
+                        Projetos <CodeIcon className="text-white w-4 h-4 md:w-5 md:h-5 ml-2" weight="bold" />
                     </a>
                     <a
                         href="/curriculoMisha.pdf"
                         download
-                        className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold"
+                        className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold text-xs md:text-base"
                     >
-                        Meu currículo <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
+                        Meu currículo <DownloadSimpleIcon className="text-white w-4 h-4 md:w-5 md:h-5" weight="bold" />
                     </a>
                 </div>
                 <img
