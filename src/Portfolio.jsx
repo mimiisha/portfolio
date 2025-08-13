@@ -1,21 +1,23 @@
 import React from "react"
 import ProjectCard from "./ProjectCard"
-import homeImageIcone from "./imgs/homeImageIcone.jpeg"
+import landingPage from "./imgs/landingPage.png"
 
 const Portfolio = () => {
     const projects = [
         {
-            image: homeImageIcone,
+            image: landingPage,
             title: "Landing Page",
-            description: "Primeiro projeto de uma landing page responsiva, utilizando HTML e CSS. Aprendizado de boas práticas de desenvolvimento web e design responsivo. - 2021"
+            description: "Primeiro projeto de uma landing page responsiva, utilizando HTML e CSS. Aprendizado de boas práticas de desenvolvimento web e design responsivo. - 2021",
+            linkInternet: "https://mishalandingpage.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/myfirstlandingpage"
         },
         {
-            image: homeImageIcone,
+            image: landingPage,
             title: "Nome do Projeto 2",
             description: "Descrição completa do projeto e tecnologias utilizadas."
         },
         {
-            image: homeImageIcone,
+            image: landingPage,
             title: "Nome do Projeto 3",
             description: "Descrição completa do projeto e tecnologias utilizadas."
         }
@@ -30,6 +32,8 @@ const Portfolio = () => {
                     title={project.title}
                     description={project.description}
                     delay={index * 100}
+                    linkGitHub={project.linkGitHub}
+                    linkInternet={project.linkInternet}
                 />
             ))}
         </div>

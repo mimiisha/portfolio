@@ -4,6 +4,7 @@ import "aos/dist/aos.css"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
 import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode } from "./svgs/Images"
 import homeImageIcone from "./imgs/homeImageIcone.jpeg"
+import BlogCard from "./CoursesCard"
 
 const AboutMe = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -12,10 +13,10 @@ const AboutMe = () => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 767)
     }
-    
+
     checkScreenSize()
     window.addEventListener('resize', checkScreenSize)
-    
+
     AOS.init({
       duration: 800,
       easing: 'ease-in-out-quad',
@@ -36,6 +37,72 @@ const AboutMe = () => {
       <Icon className="transition-all duration-300 text-details hover:text-hoverDetail w-16 h-16 md:w-24 md:h-24" />
     </div>
   )
+
+  const cards = [
+    {
+      image: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1755723600&v=beta&t=OncTCD7WvrTkjeKVrk5XGQkJ9SBMPbj2WTM_nqZtCSk",
+      date: "22 jun. 2024",
+      category: "Inteligência Artificial",
+      title: "Bootcamp de Inteligência Artificial Generativa",
+      linkCertificado: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1755723600&v=beta&t=OncTCD7WvrTkjeKVrk5XGQkJ9SBMPbj2WTM_nqZtCSk",
+    },
+    {
+      image: "/cursos/certificadoReactTypescript.png",
+      date: "3 fev. 2025",
+      category: "Programação",
+      title: "React: escrevendo com Typescript",
+      linkCertificado: "https://cursos.alura.com.br/certificate/895cb99d-20ff-4792-a5a0-ddf384fbf949"
+    },
+    {
+      image: "/cursos/certificadoReact.png",
+      date: "7 ago. 2024",
+      category: "Programação",
+      title: "React: desenvolvendo com JavaScript",
+      linkCertificado: "https://cursos.alura.com.br/certificate/096ee8e6-1394-4f72-95ff-fbe38f33346e"
+    },
+    {
+      image: "/cursos/certificadoReactRouter.png",
+      date: "10 fev. 2025",
+      category: "Programção",
+      title: "React: conhecendo a biblioteca React Router",
+      linkCertificado: "https://cursos.alura.com.br/certificate/f1f068d9-1c0a-4306-8ba6-50bc3c5cac86"
+    },
+    {
+      image: "/cursos/certificadoReactAPIS.png",
+      date: "10 fev. 2025",
+      category: "Programção",
+      title: "React com APIS",
+      linkCertificado: "https://cursos.alura.com.br/certificate/250041ca-32c8-48f6-8b2e-82913c82a1e7"
+    },
+    {
+      image: "/cursos/certificadoNextjsFullstack.png",
+      date: "16 set. 2024",
+      category: "Programação",
+      title: "Next.js Full stack",
+      linkCertificado: "https://cursos.alura.com.br/certificate/d14af0c2-3260-4e1e-928d-d0b0fe86b8f2"
+    },
+    {
+      image: "/cursos/certificadoUiparaDevs.png",
+      date: "20 ago. 2024",
+      category: "UI Design",
+      title: "UI para Devs",
+      linkCertificado: "https://cursos.alura.com.br/certificate/fbfbeb04-e06f-4787-bfce-b844616df430"
+    },
+    {
+      image: "/cursos/certificadoUxDesign.png",
+      date: "23 ago. 2024",
+      category: "UX Design",
+      title: "UX Design",
+      linkCertificado: "https://cursos.alura.com.br/certificate/7e9df367-7a36-4690-b0f6-bafcd7ae12cf"
+    },
+    {
+      image: "/cursos/certificadoLogica.png",
+      date: "2 ago. 2024",
+      category: "Programação",
+      title: "Lógica de Programação",
+      linkCertificado: "https://cursos.alura.com.br/certificate/ff221916-d4ea-4e33-b159-0a80e771e7d8"
+    },
+  ]
 
   return (
     <div className="bg-backgound text-principalText min-h-screen pb-10">
@@ -100,6 +167,16 @@ const AboutMe = () => {
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-12 
                  bg-gradient-to-t from-backgound/70 to-transparent backdrop-blur-sm"></div>
+        </div>
+      </div>
+      <div className="px-10 md:px-16 flex flex-col gap-6 mb-5">
+        <h1 className="md:text-4xl font-bold text-primaryButton flex justify-center md:justify-start text-3xl">
+          Cursos em destaques
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {cards.map((card, index) => (
+            <BlogCard key={index} {...card} delay={index * 200} />
+          ))}
         </div>
       </div>
     </div>
