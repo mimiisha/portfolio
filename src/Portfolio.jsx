@@ -6,8 +6,8 @@ const Portfolio = () => {
     const projects = [
         {
             image: homeImageIcone,
-            title: "Nome do Projeto 1",
-            description: "Descrição completa do projeto e tecnologias utilizadas."
+            title: "Landing Page",
+            description: "Primeiro projeto de uma landing page responsiva, utilizando HTML e CSS. Aprendizado de boas práticas de desenvolvimento web e design responsivo. - 2021"
         },
         {
             image: homeImageIcone,

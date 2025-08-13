@@ -1,6 +1,7 @@
 import React from 'react'
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { LogoGit, LogoInternet } from "./svgs/Images"
 
 AOS.init({
   duration: 800,
@@ -25,7 +26,11 @@ const ProjectCard = ({ image, title, description, delay }) => {
 
       <div className="p-6 flex-grow flex flex-col">
         <h3 className="text-xl font-bold text-details mb-2">{title}</h3>
-        <p className="text-white opacity-80 flex-grow">{description}</p>
+        <p className="text-principalText text-sm opacity-80 flex-grow">{description}</p>
+      </div>
+      <div className='flex my-3 mx-5 gap-2'>
+        <LogoGit className='w-5 h-5 text-primaryButton hover:text-hoverPB hover:cursor-pointer transition-all duration-300' />
+        <LogoInternet className='w-5 h-5 text-primaryButton hover:text-hoverPB hover:cursor-pointer' />
       </div>
     </div>
   )
