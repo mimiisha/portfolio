@@ -40,7 +40,7 @@ const NavBar = () => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Sobre", path: "/sobre" },
-    { label: "Portfolio", path: "/portfolio" },
+    { label: "Projetos", path: "/projetos" },
     { label: "Contato", path: "/contato" },
   ]
 

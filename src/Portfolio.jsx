@@ -1,6 +1,7 @@
 import React from "react"
 import ProjectCard from "./ProjectCard"
 import landingPage from "./imgs/landingPage.png"
+import conversormoedas from "./imgs/conversormoedas.png"
 
 const Portfolio = () => {
     const projects = [
@@ -12,15 +13,17 @@ const Portfolio = () => {
             linkGitHub: "https://github.com/mimiisha/myfirstlandingpage"
         },
         {
-            image: landingPage,
-            title: "Nome do Projeto 2",
-            description: "Descrição completa do projeto e tecnologias utilizadas."
+            image: conversormoedas,
+            title: "Conversor de Moedas",
+            description: "Projeto de um conversor de moedas utilizando HTML, CSS e JavaScript. Aprendizado de manipulação de DOM, requisições a APIs e lógica de programação. - 2025",
+            linkInternet: "https://meuconversordemoedas.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/conversormoedas"
         },
-        {
-            image: landingPage,
-            title: "Nome do Projeto 3",
-            description: "Descrição completa do projeto e tecnologias utilizadas."
-        }
+        // {
+        //     image: landingPage,
+        //     title: "Nome do Projeto 3",
+        //     description: "Descrição completa do projeto e tecnologias utilizadas."
+        // }
     ]
 
     return (
