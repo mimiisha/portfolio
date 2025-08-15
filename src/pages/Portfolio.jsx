@@ -16,7 +16,7 @@ const Portfolio = () => {
         {
             image: joguinhonsecreto,
             title: "Joguinho do N° Secreto",
-            description: "Projeto criado durante estudos na Alura, combinando HTML, CSS e JavaScript. Inclui recurso de acessibilidade com a biblioteca ResponsiveVoice.js, que lê o conteúdo da página em voz alta, proporcionando uma experiência mais inclusiva para todos os usuários.",
+            description: "Projeto criado durante estudos na Alura, combinando HTML, CSS e JavaScript. Inclui recurso de acessibilidade com a biblioteca ResponsiveVoice.js, que lê o conteúdo da página em voz alta, proporcionando uma experiência mais inclusiva para todos os usuários. - 2024",
             linkInternet: "https://joguinhonsecreto.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/Joguinho-de-n-mero-secreto"
         },
