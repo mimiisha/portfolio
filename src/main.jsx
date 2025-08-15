@@ -2,11 +2,11 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./index.css"
-import Layout from "./layout.jsx"
-import AboutMe from "./About.jsx"
-import Home from "./Home.jsx"
-import Contact from "./Contact.jsx"
-import Portfolio from "./Portfolio.jsx"
+import Layout from "./components/layout.jsx"
+import AboutMe from "./pages/About.jsx"
+import Home from "./pages/Home.jsx"
+import Contact from "./pages/Contact.jsx"
+import Portfolio from "./pages/Portfolio.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

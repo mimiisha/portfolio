@@ -1,5 +1,5 @@
 import React from "react"
-import homeImage from "./imgs/homeImage.png"
+import homeImage from "../imgs/homeImage.png"
 import { DownloadSimpleIcon, CodeIcon } from "@phosphor-icons/react"
 
 const Home = () => {

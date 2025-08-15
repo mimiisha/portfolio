@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { LogoInsta, LogoLinkedin, LogoZap } from "./svgs/Images"
+import { LogoInsta, LogoLinkedin, LogoZap } from "../svgs/Images"
 import emailjs from '@emailjs/browser'
 
 const Contact = () => {

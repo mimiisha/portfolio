@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ListIcon, XIcon } from "@phosphor-icons/react"
-import logo from "./imgs/logomisha.png"
+import logo from "../imgs/logomisha.png"
 
 const NavBar = () => {
   const location = useLocation()

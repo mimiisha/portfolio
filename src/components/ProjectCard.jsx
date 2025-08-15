@@ -1,7 +1,7 @@
 import React from 'react'
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { LogoGit, LogoInternet } from "./svgs/Images"
+import { LogoGit, LogoInternet } from "../svgs/Images"
 
 AOS.init({
   duration: 800,

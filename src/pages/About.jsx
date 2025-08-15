@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
-import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode } from "./svgs/Images"
-import homeImageIcone from "./imgs/homeImageIcone.jpeg"
-import BlogCard from "./CoursesCard"
+import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode } from "../svgs/Images"
+import homeImageIcone from "../imgs/homeImageIcone.jpeg"
+import BlogCard from "../pages/Contact"
 
 const AboutMe = () => {
   const [isMobile, setIsMobile] = useState(false)

@@ -1,7 +1,8 @@
 import React from "react"
-import ProjectCard from "./ProjectCard"
-import landingPage from "./imgs/landingPage.png"
-import conversormoedas from "./imgs/conversormoedas.png"
+import ProjectCard from "../components/ProjectCard"
+import landingPage from "../imgs/landingPage.png"
+import conversormoedas from "../imgs/conversormoedas.png"
+import joguinhonsecreto from "../imgs/joguinhonsecreto.png"
 
 const Portfolio = () => {
     const projects = [
@@ -13,17 +14,19 @@ const Portfolio = () => {
             linkGitHub: "https://github.com/mimiisha/myfirstlandingpage"
         },
         {
+            image: joguinhonsecreto,
+            title: "Joguinho do N° Secreto",
+            description: "Projeto criado durante estudos na Alura, combinando HTML, CSS e JavaScript. Inclui recurso de acessibilidade com a biblioteca ResponsiveVoice.js, que lê o conteúdo da página em voz alta, proporcionando uma experiência mais inclusiva para todos os usuários.",
+            linkInternet: "https://joguinhonsecreto.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/Joguinho-de-n-mero-secreto"
+        },
+        {
             image: conversormoedas,
             title: "Conversor de Moedas",
             description: "Projeto de um conversor de moedas utilizando HTML, CSS e JavaScript. Aprendizado de manipulação de DOM, requisições a APIs e lógica de programação. - 2025",
             linkInternet: "https://meuconversordemoedas.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/conversormoedas"
         },
-        // {
-        //     image: landingPage,
-        //     title: "Nome do Projeto 3",
-        //     description: "Descrição completa do projeto e tecnologias utilizadas."
-        // }
     ]
 
     return (
