@@ -64,14 +64,14 @@ const AboutMe = () => {
     {
       image: "/cursos/certificadoReactRouter.png",
       date: "10 fev. 2025",
-      category: "Programção",
+      category: "Programação",
       title: "React: conhecendo a biblioteca React Router",
       linkCertificado: "https://cursos.alura.com.br/certificate/f1f068d9-1c0a-4306-8ba6-50bc3c5cac86"
     },
     {
       image: "/cursos/certificadoReactAPIS.png",
       date: "10 fev. 2025",
-      category: "Programção",
+      category: "Programação",
       title: "React com APIS",
       linkCertificado: "https://cursos.alura.com.br/certificate/250041ca-32c8-48f6-8b2e-82913c82a1e7"
     },

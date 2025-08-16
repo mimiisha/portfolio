@@ -50,7 +50,7 @@ const TypeWriter = ({ textPart1, textPart2, speed = 100 }) => {
             <span className="text-white">{displayedText1}</span>
             <span className="text-details">{displayedText2}</span>
             <span
-                className={`absolute -right-1 bottom-1 w-1 h-full bg-details rounded-full ${showCaret ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute -right-1 bottom-1 w-1 h-12 bg-details rounded-full ${showCaret ? 'opacity-100' : 'opacity-0'}`}
             ></span>
         </span>
     )

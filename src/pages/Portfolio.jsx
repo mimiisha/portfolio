@@ -3,6 +3,7 @@ import ProjectCard from "../components/ProjectCard"
 import landingPage from "../imgs/landingPage.png"
 import conversormoedas from "../imgs/conversormoedas.png"
 import joguinhonsecreto from "../imgs/joguinhonsecreto.png"
+import calculadora from "../imgs/calculadora.png"
 
 const Portfolio = () => {
     const projects = [
@@ -21,9 +22,16 @@ const Portfolio = () => {
             linkGitHub: "https://github.com/mimiisha/Joguinho-de-n-mero-secreto"
         },
         {
+            image: calculadora,
+            title: "Calculadora React",
+            description: "Calculadora interativa desenvolvida com React JSX, utilizando Hooks para gerenciamento de estado. Features: histórico de operações no display, design responsivo com gradiente animado e teclado virtual completo. Projeto focado em aprimorar lógica de programação e componentização em React. - 2024",
+            linkInternet: "https://mishacalculadora.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/calculadora"
+        },
+        {
             image: conversormoedas,
             title: "Conversor de Moedas",
-            description: "Projeto de um conversor de moedas utilizando HTML, CSS e JavaScript. Aprendizado de manipulação de DOM, requisições a APIs e lógica de programação. - 2025",
+            description: "Projeto de um conversor de moedas utilizando React JSX e Tailwind CSS. Aprendizado de manipulação de DOM, requisições a APIs e lógica de programação. - 2025",
             linkInternet: "https://meuconversordemoedas.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/conversormoedas"
         },
