@@ -11,6 +11,7 @@ export default {
       colors: {
         backgound: "#0F172A",
         bgSecondary: "#001341",
+        bgFooter: '#111827',
         primaryButton: "#38BDF8",
         hoverPB: "#32A6DA",
         secondaryButton: "#94A3B8",
@@ -31,15 +32,29 @@ export default {
       },
       animation: {
         'bounce-slow': 'bounce 3s ease-in-out infinite',
+        'float-label': 'floatLabel 0.2s ease-out forwards',
       },
       keyframes: {
         bounce: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        floatLabel: {
+          '0%': {
+            top: '1rem',
+            left: '1rem',
+            fontSize: '1rem',
+            color: '#6b7280'
+          },
+          '100%': {
+            top: '-0.5rem',
+            left: '0.8rem',
+            fontSize: '0.75rem',
+            color: '#FBBF24'
+          },
         }
       }
     },
   },
   plugins: [],
 }
-

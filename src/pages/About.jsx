@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { motion } from "framer-motion"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
 import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode } from "../svgs/Images"
 import homeImageIcone from "../imgs/homeImageIcone.jpeg"
@@ -105,7 +106,7 @@ const AboutMe = () => {
   ]
 
   return (
-    <div className="bg-backgound text-principalText min-h-screen pb-10">
+    <div className="bg-backgound text-principalText min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 md:px-16">
         <div className="md:col-span-2 py-10">
           <div className="flex flex-col gap-6">
@@ -134,24 +135,22 @@ const AboutMe = () => {
           </div>
         </div>
 
-        <div className="flex justify-center items-start md:items-center py-6 md:py-10">
-          <img
+        <div className="flex justify-center items-start md:items-center py-6 md:py-10 min-h-[300px]">
+          <motion.img
             src={homeImageIcone}
             alt="Misha"
             className="w-full max-w-[400px] lg:w-[400px] mx-auto rounded-full border-2 border-details"
-            data-aos={isMobile ? "fade-up" : "fade-left"}
-            data-aos-delay="300"
-            data-aos-duration="800"
+            initial={{ opacity: 0, y: isMobile ? 40 : 0, x: isMobile ? 0 : 40 }}
+            animate={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           />
         </div>
       </div>
       <div>
         <div className="bg-bgSecondary w-full py-12 flex flex-col text-details justify-center items-center gap-6 relative overflow-hidden mb-10">
-          <div className="absolute top-0 left-0 right-0 h-12 
-                 bg-gradient-to-b from-backgound/70 to-transparent 
-                 backdrop-blur-sm"></div>
-          <div className="w-full px-16 flex flex-col gap-8 py-8 ">
-            <h1 className="md:text-4xl font-bold text-details flex justify-center md:justify-start text-3xl">
+          <div className="absolute top-0 inset-x-0 h-12 w-full bg-gradient-to-b from-backgound/70 to-transparent backdrop-blur-sm pointer-events-none"></div>
+          <div className="w-full px-6 md:px-16 flex flex-col gap-8 py-8">
+            <h1 className="md:text-4xl font-bold text-details flex justify-center md:justify-start sm:text-3xl text-[28px]">
               Conhecimentos
             </h1>
             <section className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-y-8 justify-items-center items-center w-full">
@@ -165,12 +164,11 @@ const AboutMe = () => {
               <KnowledgeItem name="Figma" Icon={LogoFigma} delay="700" />
             </section>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-12 
-                 bg-gradient-to-t from-backgound/70 to-transparent backdrop-blur-sm"></div>
+          <div className="absolute bottom-0 inset-x-0 h-12 w-full bg-gradient-to-t from-backgound/70 to-transparent backdrop-blur-sm pointer-events-none"></div>
         </div>
       </div>
       <div className="px-10 md:px-16 flex flex-col gap-6 mb-5">
-        <h1 className="md:text-4xl font-bold text-primaryButton flex justify-center md:justify-start text-3xl">
+        <h1 className="md:text-4xl font-bold text-primaryButton flex justify-center md:justify-start sm:text-3xl text-[28px]">
           Cursos em destaques
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

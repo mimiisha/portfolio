@@ -52,7 +52,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="bg-backgound min-h-screen pb-10">
+        <div className="bg-backgound min-h-screen">
             <div className="pt-10 pb-10 mx-16 flex justify-center flex-col items-center gap-10 font-semibold text-2xl md:text-4xl text-details">
                 Minhas Redes
                 <div className="flex gap-24">
@@ -76,72 +76,68 @@ const Contact = () => {
                  bg-gradient-to-t from-backgound/70 to-transparent 
                  backdrop-blur-sm"></div>
                 <section className="flex flex-col gap-4 h-auto w-[350px] md:w-[800px] p-4 relative z-10">
-                    <form ref={form} onSubmit={enviarEmail} className="flex flex-col gap-4">
+                    <form ref={form} onSubmit={enviarEmail} className="flex flex-col">
                         <h2 className="font-semibold text-lg md:text-2xl flex justify-center md:mb-2">
-                            Entre em contato
+                            Envie uma mensagem
                         </h2>
-                        <div className="mb-2 flex flex-col md:flex-row gap-4 md:gap-10 justify-center">
+
+                        <div className="flex flex-col md:flex-row md:gap-10 justify-center">
                             <div className="input-group flex-1">
-                                <label htmlFor="name">Nome</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    className="py-2 px-4 rounded-xl text-black w-full"
-                                    placeholder="Digite seu nome"
+                                    className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
+                                    placeholder=" "
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
                                 />
+                                <label htmlFor="name">Nome</label>
                             </div>
+
                             <div className="input-group flex-1">
-                                <label htmlFor="email">E-mail</label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
-                                    className="py-2 px-4 rounded-xl text-black w-full"
-                                    placeholder="Digite seu e-mail"
+                                    className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
+                                    placeholder=" "
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
+                                <label htmlFor="email">E-mail</label>
                             </div>
                         </div>
-                        <div>
-                            <label className="input-group" htmlFor="subject">
-                                Assunto
-                            </label>
+
+                        <div className="input-group">
                             <input
                                 type="text"
-                                className="py-2 px-4 rounded-xl text-black w-full"
-                                placeholder="Digite o assunto"
+                                id="subject"
                                 name="subject"
+                                className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
+                                placeholder=" "
                                 required
                                 value={formData.subject}
                                 onChange={handleChange}
                             />
+                            <label htmlFor="subject">Assunto</label>
                         </div>
-                        <div>
-                            <label className="input-group" htmlFor="message">
-                                Mensagem
-                            </label>
+
+                        <div className="input-group textarea-group">
                             <textarea
-                                className="py-2 px-4 rounded-xl text-black w-full h-[100px] min-h-[40px]"
-                                placeholder="Digite a mensagem"
-                                rows="5"
+                                id="message"
                                 name="message"
+                                className="min-h-[150px]"
+                                placeholder=" "
                                 required
-                                value={formData.message}
-                                onChange={handleChange}
                             />
+                            <label htmlFor="message">Mensagem</label>
                         </div>
 
                         {feedbackMessage && (
-                            <p
-                                className={`text-center font-medium ${feedbackMessage.startsWith("✅") ? "text-green-600" : "text-red-600"
-                                    }`}
-                            >
+                            <p className={`text-center font-medium ${feedbackMessage.startsWith("✅") ? "text-green-600" : "text-red-600"}`}>
                                 {feedbackMessage}
                             </p>
                         )}
@@ -149,7 +145,7 @@ const Contact = () => {
                         <div className="flex justify-center items-center mt-4">
                             <button
                                 type="submit"
-                                className="py-2 px-4 rounded-full w-60 bg-details hover:bg-hoverDetail transition-all duration-300 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-details"
+                                className="py-3 px-6 rounded-full w-60 bg-details hover:bg-hoverDetail transition-all duration-300 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-details"
                                 disabled={!isFormValid()}
                             >
                                 Enviar mensagem

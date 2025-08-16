@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .input-group {
+        @apply relative mt-8;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        @apply pt-5 pb-2 px-4 border-2 border-gray-300 rounded-xl w-full text-black;
+    }
+
+    .input-group:not(.textarea-group) label {
+        @apply absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 transition-all duration-200 ease-out pointer-events-none px-1 text-sm;
+    }
+
+    .input-group.textarea-group label {
+        @apply absolute left-4 top-4 text-gray-500 transition-all duration-200 ease-out pointer-events-none px-1 text-sm;
+    }
+
+    .input-group label::after {
+        content: '';
+        @apply absolute inset-0 -z-10 bg-transparent opacity-80;
+    }
+
+    .input-group:not(.textarea-group) input:focus+label,
+    .input-group:not(.textarea-group) input:not(:placeholder-shown)+label {
+        @apply top-0 left-3 text-sm font-medium text-details bg-transparent transform-none;
+    }
+
+    .input-group.textarea-group textarea:focus+label,
+    .input-group.textarea-group textarea:not(:placeholder-shown)+label {
+        @apply top-0 left-3 text-sm font-medium text-details bg-transparent transform-none;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus {
+        @apply outline-none border-details;
+    }
+}
+
 body {
     @apply font-body;
 }
