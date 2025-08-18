@@ -40,15 +40,15 @@ const Home = () => {
                     </div>
                     <img
                         src={homeImage}
-                        alt="Misha"
-                        className="block md:hidden my-10 w-[400px] mx-auto animate-bounce-slow"
+                        alt="Ícone"
+                        className="block lg:hidden my-10 w-[400px] mx-auto animate-bounce-slow"
                     />
                 </div>
 
-                <div className="hidden md:block col-span-1  mr-8">
+                <div className="hidden lg:block col-span-1  mr-8">
                     <img
                         src={homeImage}
-                        alt="Minha Foto"
+                        alt="Ícone"
                         className="w-full h-full object-contain animate-bounce-slow"
                     />
                 </div>

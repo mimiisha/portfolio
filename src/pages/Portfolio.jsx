@@ -1,11 +1,25 @@
-import React from "react"
+import React, { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 import ProjectCard from "../components/ProjectCard"
 import landingPage from "../imgs/landingPage.png"
 import conversormoedas from "../imgs/conversormoedas.png"
 import joguinhonsecreto from "../imgs/joguinhonsecreto.png"
 import calculadora from "../imgs/calculadora.png"
+import jogodavelha from "../imgs/jogodavelha.png"
 
 const Portfolio = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-quad',
+            once: true,
+            offset: 120,
+        })
+    }, [])
+
     const projects = [
         {
             image: landingPage,
@@ -34,6 +48,13 @@ const Portfolio = () => {
             description: "Projeto de um conversor de moedas utilizando React JSX e Tailwind CSS. Aprendizado de manipulação de DOM, requisições a APIs e lógica de programação. - 2025",
             linkInternet: "https://meuconversordemoedas.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/conversormoedas"
+        },
+        {
+            image: jogodavelha,
+            title: "Jogo da Velha com IA",
+            description: "Jogo da Velha interativo desenvolvido com React JSX e Tailwind CSS, oferecendo dois modos de jogo: multiplayer local e contra a máquina com três níveis de dificuldade (fácil, médio e difícil). Destaque para a implementação do algoritmo Minimax no nível difícil, tornando-a praticamente imbatível. O projeto inclui uma tela de resultado em full-screen e foi desenvolvido com foco em gerenciamento de estado complexo. - 2025",
+            linkInternet: "https://joguinhodavelha.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/jogodavelha"
         },
     ]
 
