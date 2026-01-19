@@ -129,9 +129,11 @@ const Contact = () => {
                             <textarea
                                 id="message"
                                 name="message"
-                                className="min-h-[150px]"
+                                className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details min-h-[150px]"
                                 placeholder=" "
                                 required
+                                value={formData.message}
+                                onChange={handleChange}
                             />
                             <label htmlFor="message">Mensagem</label>
                         </div>

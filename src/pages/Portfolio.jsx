@@ -7,6 +7,7 @@ import conversormoedas from "../imgs/conversormoedas.png"
 import joguinhonsecreto from "../imgs/joguinhonsecreto.png"
 import calculadora from "../imgs/calculadora.png"
 import jogodavelha from "../imgs/jogodavelha.png"
+import desconectaai from "../imgs/desconectaai.png"
 
 const Portfolio = () => {
 
@@ -55,6 +56,13 @@ const Portfolio = () => {
             description: "Jogo da Velha interativo desenvolvido com React JSX e Tailwind CSS, oferecendo dois modos de jogo: multiplayer local e contra a máquina com três níveis de dificuldade (fácil, médio e difícil). Destaque para a implementação do algoritmo Minimax no nível difícil, tornando-a praticamente imbatível. O projeto inclui uma tela de resultado em full-screen e foi desenvolvido com foco em gerenciamento de estado complexo. - 2025",
             linkInternet: "https://joguinhodavelha.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/jogodavelha"
+        },
+         {
+            image: desconectaai,
+            title: "Desconecta AI",
+            description: "Projeto desenvolvedo para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo. - 2025",
+            linkInternet: "https://desconecta-ai.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/projeto-desconecta.ai"
         },
     ]
 

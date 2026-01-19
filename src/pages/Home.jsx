@@ -31,7 +31,7 @@ const Home = () => {
                             Projetos <CodeIcon className="text-white w-4 h-4 md:w-5 md:h-5 ml-2" weight="bold" />
                         </a>
                         <a
-                            href="/curriculoMisha.pdf"
+                            href="/Currículo - Danielle Cordeiro.pdf"
                             download
                             className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold text-xs md:text-base"
                         >

@@ -3,7 +3,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { motion } from "framer-motion"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
-import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode } from "../svgs/Images"
+import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode, LogoCsharp, LogoSQL } from "../svgs/Images"
 import homeImageIcone from "../imgs/homeImageIcone.jpeg"
 import CoursesCard from "../components/CoursesCard"
 
@@ -41,11 +41,11 @@ const AboutMe = () => {
 
   const cards = [
     {
-      image: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1755723600&v=beta&t=OncTCD7WvrTkjeKVrk5XGQkJ9SBMPbj2WTM_nqZtCSk",
+      image: "/cursos/certificadoDistrito.png",
       date: "22 jun. 2024",
       category: "Inteligência Artificial",
       title: "Bootcamp de Inteligência Artificial Generativa",
-      linkCertificado: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1755723600&v=beta&t=OncTCD7WvrTkjeKVrk5XGQkJ9SBMPbj2WTM_nqZtCSk",
+      linkCertificado: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1769450400&v=beta&t=eZf7KhaRZ98_RrwBvdh3IaCFxFPrMeiRj2aXdm5AzTs",
     },
     {
       image: "/cursos/certificadoReactTypescript.png",
@@ -111,7 +111,7 @@ const AboutMe = () => {
         <div className="md:col-span-2 py-10">
           <div className="flex flex-col gap-6">
             <p className="text-lg md:text-2xl">
-              Sou estudante de Design de Mídias Digitais, pela FATEC, e atuo com desenvolvimento front-end,
+              Sou estudante de Design de Mídias Digitais, pela FATEC, e atuo com desenvolvimento full stack focado em front-end,
               unindo tecnologia e criatividade para criar soluções funcionais, acessíveis e centradas no usuário.
               Tenho experiência prática com React.js, JavaScript, TypeScript, Styled Components, integração com APIs
               e criação de componentes reutilizáveis.
@@ -124,7 +124,7 @@ const AboutMe = () => {
             </p>
             <div className="flex justify-center items-center md:justify-start ">
               <a
-                href="/cartaApresentaçãoMisha.pdf"
+                href="/Carta de Apresentação - Danielle.pdf"
                 download
                 className="flex justify-center items-center gap-4 mt-4 h-auto w-72 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold"
               >
@@ -153,7 +153,7 @@ const AboutMe = () => {
             <h1 className="md:text-4xl font-bold text-details flex justify-center md:justify-start sm:text-3xl text-[28px]">
               Conhecimentos
             </h1>
-            <section className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-y-8 justify-items-center items-center w-full">
+            <section className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-y-8 justify-items-center items-center w-full">
               <KnowledgeItem name="HTML" Icon={LogoHtml} delay="0" />
               <KnowledgeItem name="CSS" Icon={LogoCss} delay="100" />
               <KnowledgeItem name="JavaScript" Icon={LogoJs} delay="200" />
@@ -162,6 +162,8 @@ const AboutMe = () => {
               <KnowledgeItem name="Git" Icon={LogoGit} delay="500" />
               <KnowledgeItem name="Node.js" Icon={LogoNode} delay="600" />
               <KnowledgeItem name="Figma" Icon={LogoFigma} delay="700" />
+              <KnowledgeItem name="Csharp" Icon={LogoCsharp} delay="800" />
+              <KnowledgeItem name="MySQL" Icon={LogoSQL} delay="900" />
             </section>
           </div>
           <div className="absolute bottom-0 inset-x-0 h-12 w-full bg-gradient-to-t from-backgound/70 to-transparent backdrop-blur-sm pointer-events-none"></div>
