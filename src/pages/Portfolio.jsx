@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useReducedMotion } from "framer-motion"
 import ProjectCard from "../components/ProjectCard"
 import landingPage from "../imgs/landingPage.png"
 import conversormoedas from "../imgs/conversormoedas.png"
@@ -10,16 +11,18 @@ import jogodavelha from "../imgs/jogodavelha.png"
 import desconectaai from "../imgs/desconectaai.png"
 
 const Portfolio = () => {
+    const shouldReduceMotion = useReducedMotion()
 
     useEffect(() => {
         window.scrollTo(0, 0)
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out-quad',
+            duration: 600,
+            easing: 'ease-out-quart',
             once: true,
-            offset: 120,
+            offset: 80,
+            disable: shouldReduceMotion === true,
         })
-    }, [])
+    }, [shouldReduceMotion])
 
     const projects = [
         {
@@ -67,21 +70,25 @@ const Portfolio = () => {
     ]
 
     return (
-        <div className="bg-backgound min-h-screen">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-8 md:px-10 md:py-12">
+        <section className="page-container section-y">
+            <div className="flex flex-col gap-3">
+                <span className="eyebrow" aria-hidden="true">{String(projects.length).padStart(2, "0")}</span>
+                <h1 className="heading-section">Projetos</h1>
+            </div>
+            <ul role="list" className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project, index) => (
                     <ProjectCard
                         key={index}
                         image={project.image}
                         title={project.title}
                         description={project.description}
-                        delay={index * 100}
+                        delay={(index % 3) * 80}
                         linkGitHub={project.linkGitHub}
                         linkInternet={project.linkInternet}
                     />
                 ))}
-            </div>
-        </div>
+            </ul>
+        </section>
     )
 }
 

@@ -3,38 +3,38 @@ import { MagnifyingGlassIcon } from "@phosphor-icons/react"
 
 const CoursesCard = ({ image, date, category, title, delay, linkCertificado }) => {
     return (
-        <div
-            className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer"
-            data-aos="fade-up"
-            data-aos-delay={delay}
-        >
-            <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
-                style={{
-                    backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3)), url(${image})`,
-                }}
-            ></div>
-
-            <div className="absolute bottom-0 p-4 text-white z-10">
-                <div className="text-sm opacity-80 flex items-center gap-2">
-                    <span>{date}</span>
-                    <span>•</span>
-                    <span>{category}</span>
+        <li data-aos="fade-up" data-aos-delay={delay} className="h-full">
+            <article className="card card-interactive group flex h-full flex-col has-[a:focus-visible]:border-action/40">
+                <div className="aspect-[16/10] w-full overflow-hidden border-b border-line-subtle bg-surface-raised">
+                    <img
+                        src={image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover object-top transition-transform duration-500 ease-out-quart motion-safe:group-hover:scale-[1.03]"
+                    />
                 </div>
-                <h2 className="text-lg font-semibold">{title}</h2>
-            </div>
-
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition"></div>
-
-            <a
-                href={linkCertificado}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 p-2 rounded-full text-principalText hover:text-gray-300 transition z-20"
-            >
-                <MagnifyingGlassIcon size={24} weight="bold" />
-            </a>
-        </div>
+                <div className="flex flex-1 items-end justify-between gap-4 p-5">
+                    <div className="min-w-0">
+                        <p className="flex flex-wrap items-center gap-x-2 text-caption text-content-secondary">
+                            <span>{date}</span>{" "}
+                            <span aria-hidden="true">•</span>{" "}
+                            <span>{category}</span>
+                        </p>
+                        <h3 className="mt-2 font-display text-title-sm font-semibold text-content">{title}</h3>
+                    </div>
+                    <a
+                        href={linkCertificado}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-icon shrink-0 before:absolute before:inset-0 before:rounded-card"
+                    >
+                        <MagnifyingGlassIcon size={20} weight="bold" aria-hidden="true" focusable="false" />
+                        <span className="sr-only">Ver certificado do curso {title} (abre em nova aba)</span>
+                    </a>
+                </div>
+            </article>
+        </li>
     )
 }
 

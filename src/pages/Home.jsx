@@ -5,55 +5,53 @@ import TypeWriter from "../components/TypeWriter"
 
 const Home = () => {
     return (
-        <div className="flex flex-col min-h-screen bg-backgound">
-            <div className="grid grid-cols-1 md:grid-cols-3 flex-1 h-auto md:h-[calc(100vh-80px)]">
-                <div className="my-10 mx-8 md:mx-16 flex flex-col gap-4 md:col-span-2 text-principalText">
-                    <h1 className="font-medium text-3xl sm:text-4xl">Olá, eu sou a Misha!</h1>
-                    <h2 className="font-bold text-5xl sm:text-6xl">
+        <section className="relative isolate overflow-hidden">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-hero-glow"></div>
+            <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-hero-grid bg-cell [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)] lg:block"></div>
+            <div className="page-container grid items-center gap-12 py-16 md:py-24 lg:min-h-[calc(100svh-4.5rem)] lg:grid-cols-12 lg:py-16">
+                <div className="flex flex-col lg:col-span-7">
+                    <h1 className="font-display text-title font-medium text-content-secondary md:text-greeting">Olá, eu sou a Misha!</h1>
+                    <h2 lang="en" className="mt-3 min-h-[2em] font-display text-display-sm font-extrabold [overflow-wrap:anywhere] md:text-display-md lg:text-display-lg">
                         <TypeWriter
                             textPart1="WEB "
                             textPart2="DEVELOPER"
                             speed={150}
+                            breakBeforePart2
                         />
                     </h2>
-                    <p className="text-lg sm:text-xl md:w-[800px]">
+                    <p className="mt-6 max-w-measure text-body-lg text-content-secondary md:text-lead">
                         Aqui você encontra meus projetos acadêmicos e pessoais, desenvolvidos para implementar e consolidar meus conhecimentos técnicos.<br />
                         Sinta-se à vontade para explorar, conhecer meu processo criativo e ver como tecnologia e criatividade se unem no meu trabalho.
                     </p>
 
-                    <div className="flex flex-row gap-4">
+                    <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                        <a
+                            href="/Currículo - Danielle Cordeiro.pdf"
+                            download
+                            className="btn btn-primary btn-lg w-full sm:w-auto"
+                        >
+                            Meu currículo<span className="sr-only"> (download em PDF)</span> <DownloadSimpleIcon className="h-5 w-5 shrink-0" weight="bold" aria-hidden="true" focusable="false" />
+                        </a>
                         <a
                             href="https://github.com/mimiisha"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex justify-center items-center mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-secondaryButton hover:bg-hoverSB transition-all duration-300 font-semibold text-xs md:text-base"
+                            className="btn btn-ghost btn-lg w-full sm:w-auto"
                         >
-                            Projetos <CodeIcon className="text-white w-4 h-4 md:w-5 md:h-5 ml-2" weight="bold" />
-                        </a>
-                        <a
-                            href="/Currículo - Danielle Cordeiro.pdf"
-                            download
-                            className="flex justify-center items-center gap-4 mt-8 h-auto w-64 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold text-xs md:text-base"
-                        >
-                            Meu currículo <DownloadSimpleIcon className="text-white w-4 h-4 md:w-5 md:h-5" weight="bold" />
+                            Projetos<span className="sr-only"> no GitHub (abre em nova aba)</span> <CodeIcon className="h-5 w-5 shrink-0" weight="bold" aria-hidden="true" focusable="false" />
                         </a>
                     </div>
-                    <img
-                        src={homeImage}
-                        alt="Ícone"
-                        className="block lg:hidden my-10 w-[400px] mx-auto animate-bounce-slow"
-                    />
                 </div>
 
-                <div className="hidden lg:block col-span-1  mr-8">
+                <div className="lg:col-span-5">
                     <img
                         src={homeImage}
-                        alt="Ícone"
-                        className="w-full h-full object-contain animate-bounce-slow"
+                        alt=""
+                        className="mx-auto h-auto w-full max-w-[20rem] motion-safe:animate-enter-up md:max-w-[26rem] lg:max-w-none"
                     />
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
