@@ -1,14 +1,38 @@
 import React, { useEffect, useState } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { DownloadSimpleIcon } from "@phosphor-icons/react"
-import { LogoHtml, LogoCss, LogoJs, LogoTs, LogoReact, LogoFigma, LogoGit, LogoNode, LogoCsharp, LogoSQL } from "../svgs/Images"
+import { SimpleIcon } from "../svgs/Images"
 import homeImageIcone from "../imgs/homeImageIcone.jpeg"
 import CoursesCard from "../components/CoursesCard"
+import { skillCategories } from "../data/skills"
+
+const skillIconClass = "h-[1.125rem] w-[1.125rem] shrink-0 text-highlight"
+
+const SkillChip = ({ name, brand, Icon }) => (
+  <li className="chip">
+    {brand
+      ? <SimpleIcon icon={brand} className={skillIconClass} />
+      : <Icon className={skillIconClass} aria-hidden="true" focusable="false" />}
+    <span>{name}</span>
+  </li>
+)
+
+const SkillCategory = ({ title, items }) => (
+  <div data-aos="fade-up" className="grid gap-4 border-t border-line-subtle py-8 first:border-t-0 first:pt-0 last:pb-0 lg:grid-cols-12 lg:gap-8">
+    <h3 className="font-display text-title-sm font-semibold text-highlight lg:col-span-4">{title}</h3>
+    <ul role="list" className="flex flex-wrap gap-3 lg:col-span-8">
+      {items.map((item) => (
+        <SkillChip key={item.name} {...item} />
+      ))}
+    </ul>
+  </div>
+)
 
 const AboutMe = () => {
   const [isMobile, setIsMobile] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -19,25 +43,15 @@ const AboutMe = () => {
     window.addEventListener('resize', checkScreenSize)
 
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out-quad',
+      duration: 600,
+      easing: 'ease-out-quart',
       once: true,
-      offset: 120,
+      offset: 80,
+      disable: shouldReduceMotion === true,
     })
 
     return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
-
-  const KnowledgeItem = ({ name, Icon, delay }) => (
-    <div
-      data-aos="fade-up"
-      data-aos-delay={delay}
-      className="flex flex-col items-center text-base md:text-xl text-details"
-    >
-      {name}
-      <Icon className="transition-all duration-300 text-details hover:text-hoverDetail w-16 h-16 md:w-24 md:h-24" />
-    </div>
-  )
+  }, [shouldReduceMotion])
 
   const cards = [
     {
@@ -45,7 +59,7 @@ const AboutMe = () => {
       date: "22 jun. 2024",
       category: "Inteligência Artificial",
       title: "Bootcamp de Inteligência Artificial Generativa",
-      linkCertificado: "https://media.licdn.com/dms/image/v2/D4D2DAQFFB55qD4ms5w/profile-treasury-image-shrink_800_800/B4DZT7iLZLHIAY-/0/1739386829120?e=1769450400&v=beta&t=eZf7KhaRZ98_RrwBvdh3IaCFxFPrMeiRj2aXdm5AzTs",
+      linkCertificado: "/cursos/certificadoDistrito.png",
     },
     {
       image: "/cursos/certificadoReactTypescript.png",
@@ -105,81 +119,85 @@ const AboutMe = () => {
     },
   ]
 
-  return (
-    <div className="bg-backgound text-principalText min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 md:px-16">
-        <div className="md:col-span-2 py-10">
-          <div className="flex flex-col gap-6">
-            <p className="text-lg md:text-2xl">
-              Sou estudante de Design de Mídias Digitais, pela FATEC, e atuo com desenvolvimento full stack focado em front-end,
-              unindo tecnologia e criatividade para criar soluções funcionais, acessíveis e centradas no usuário.
-              Tenho experiência prática com React.js, JavaScript, TypeScript, Styled Components, integração com APIs
-              e criação de componentes reutilizáveis.
-              <br /><br />
-              Também já atuei em projetos completos — do protótipo no Figma à implementação — sempre buscando unir
-              UX/UI, organização e empatia pelo usuário.
-              <br /><br />
-              Gosto de aprender, colaborar com pessoas e transformar ideias em experiências digitais de verdade.
-              Se quiser conversar ou criar algo juntos, estou por aqui! :)
-            </p>
-            <div className="flex justify-center items-center md:justify-start ">
-              <a
-                href="/Carta de Apresentação - Danielle.pdf"
-                download
-                className="flex justify-center items-center gap-4 mt-4 h-auto w-72 text-white rounded-full px-4 py-2 bg-primaryButton hover:bg-hoverPB transition-all duration-300 font-semibold"
-              >
-                Carta de Apresentação
-                <DownloadSimpleIcon className="text-white w-5 h-5" weight="bold" />
-              </a>
-            </div>
-          </div>
-        </div>
+  const skillsCount = String(skillCategories.reduce((total, category) => total + category.items.length, 0)).padStart(2, "0")
+  const coursesCount = String(cards.length).padStart(2, "0")
 
-        <div className="flex justify-center items-start md:items-center py-6 md:py-10 min-h-[300px]">
-          <motion.img
-            src={homeImageIcone}
-            alt="Misha"
-            className="w-full max-w-[400px] lg:w-[400px] mx-auto rounded-full border-2 border-details"
-            initial={{ opacity: 0, y: isMobile ? 40 : 0, x: isMobile ? 0 : 40 }}
-            animate={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
+  return (
+    <>
+      <section className="page-container section-y">
+        <div className="flex flex-col gap-3">
+          <span className="eyebrow" aria-hidden="true"></span>
+          <h1 className="heading-section">Sobre mim</h1>
         </div>
-      </div>
-      <div>
-        <div className="bg-bgSecondary w-full py-12 flex flex-col text-details justify-center items-center gap-6 relative overflow-hidden mb-10">
-          <div className="absolute top-0 inset-x-0 h-12 w-full bg-gradient-to-b from-backgound/70 to-transparent backdrop-blur-sm pointer-events-none"></div>
-          <div className="w-full px-6 md:px-16 flex flex-col gap-8 py-8">
-            <h1 className="md:text-4xl font-bold text-details flex justify-center md:justify-start sm:text-3xl text-[28px]">
-              Conhecimentos
-            </h1>
-            <section className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-y-8 justify-items-center items-center w-full">
-              <KnowledgeItem name="HTML" Icon={LogoHtml} delay="0" />
-              <KnowledgeItem name="CSS" Icon={LogoCss} delay="100" />
-              <KnowledgeItem name="JavaScript" Icon={LogoJs} delay="200" />
-              <KnowledgeItem name="TypeScript" Icon={LogoTs} delay="300" />
-              <KnowledgeItem name="React" Icon={LogoReact} delay="400" />
-              <KnowledgeItem name="Git" Icon={LogoGit} delay="500" />
-              <KnowledgeItem name="Node.js" Icon={LogoNode} delay="600" />
-              <KnowledgeItem name="Figma" Icon={LogoFigma} delay="700" />
-              <KnowledgeItem name="Csharp" Icon={LogoCsharp} delay="800" />
-              <KnowledgeItem name="MySQL" Icon={LogoSQL} delay="900" />
-            </section>
+        <div className="mt-10 grid items-center gap-12 md:mt-14 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="max-w-measure space-y-5 text-body-lg text-content-secondary md:text-lead">
+              <p>
+                Sou desenvolvedora Full Stack e estudante de Design de Mídias Digitais na FATEC. Minha trajetória começou no front-end, e hoje atuo no desenvolvimento de aplicações web e mobile, unindo tecnologia, design e experiência do usuário.
+              </p>
+              <p>
+                Tenho experiência com React, JavaScript, TypeScript, APIs REST, bancos de dados e desenvolvimento de interfaces, participando de projetos desde a prototipação no Figma até a implementação e integração das soluções.
+              </p>
+              <p>
+                Meu diferencial está justamente em transitar entre design e desenvolvimento: gosto de entender o problema, pensar na experiência de quem vai utilizar a solução e transformar ideias em produtos digitais funcionais, intuitivos e acessíveis.
+              </p>
+              <p>
+                Gosto de aprender, colaborar e enfrentar novos desafios. Estou sempre buscando evoluir como profissional e transformar boas ideias em experiências digitais de verdade. Se quiser conversar ou criar algo juntos, estou por aqui! :)
+              </p>
+            </div>
+            <a
+              href="/Carta de Apresentação - Danielle.pdf"
+              download
+              className="btn btn-primary btn-lg mt-10 w-full sm:w-auto"
+            >
+              Carta de Apresentação<span className="sr-only"> (download em PDF)</span>
+              <DownloadSimpleIcon className="h-5 w-5 shrink-0" weight="bold" aria-hidden="true" focusable="false" />
+            </a>
           </div>
-          <div className="absolute bottom-0 inset-x-0 h-12 w-full bg-gradient-to-t from-backgound/70 to-transparent backdrop-blur-sm pointer-events-none"></div>
+
+          <div className="flex justify-center lg:col-span-5 lg:justify-end">
+            <motion.img
+              src={homeImageIcone}
+              alt="Foto da Misha"
+              className="aspect-square w-full max-w-[16rem] rounded-full border-2 border-highlight object-cover shadow-glow-highlight md:max-w-[20rem] lg:max-w-[24rem]"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: isMobile ? 24 : 0, x: isMobile ? 0 : 24 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 1, 0.5, 1] }}
+            />
+          </div>
         </div>
-      </div>
-      <div className="px-10 md:px-16 flex flex-col gap-6 mb-5">
-        <h1 className="md:text-4xl font-bold text-primaryButton flex justify-center md:justify-start sm:text-3xl text-[28px]">
-          Cursos em destaques
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      </section>
+
+      <section className="bg-band section-y">
+        <div className="page-container">
+          <div className="flex flex-col gap-3">
+            <span className="eyebrow" aria-hidden="true">{skillsCount}</span>
+            <h2 className="heading-section">Conhecimentos</h2>
+          </div>
+          <div className="mt-10 md:mt-14">
+            {skillCategories.map((category) => (
+              <SkillCategory
+                key={category.title}
+                title={category.title}
+                items={category.items}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-container section-y">
+        <div className="flex flex-col gap-3">
+          <span className="eyebrow" aria-hidden="true">{coursesCount}</span>
+          <h2 className="heading-section">Cursos em destaques</h2>
+        </div>
+        <ul role="list" className="mt-10 grid gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
           {cards.map((card, index) => (
-            <CoursesCard key={index} {...card} delay={index * 200} />
+            <CoursesCard key={index} {...card} delay={(index % 3) * 80} />
           ))}
-        </div>
-      </div>
-    </div>
+        </ul>
+      </section>
+    </>
   )
 }
 

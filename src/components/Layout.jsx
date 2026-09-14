@@ -5,10 +5,10 @@ import Footer from "./Footer"
 
 const Layout = ({ children }) => {
     return (
-        <div className="bg-backgound">
+        <div className="flex min-h-screen flex-col bg-canvas text-content">
             <NavBar />
             <ScrollToTop />
-            <main>{children}</main>
+            <main className="flex-1">{children}</main>
             <Footer />
         </div>
     )

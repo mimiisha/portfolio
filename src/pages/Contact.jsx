@@ -1,10 +1,14 @@
 import React, { useRef, useState } from "react"
+import { CheckCircleIcon, WarningCircleIcon } from "@phosphor-icons/react"
 import { LogoInsta, LogoLinkedin, LogoZap } from "../svgs/Images"
 import emailjs from '@emailjs/browser'
+import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from "../hooks/useContactForm"
+
+const socialTileClass = "inline-flex h-14 w-14 items-center justify-center rounded-card border border-line bg-surface text-highlight transition-[border-color,background-color,box-shadow] duration-200 ease-out-quart hover:border-highlight/60 hover:bg-surface-raised hover:shadow-glow-highlight-sm active:bg-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
 
 const Contact = () => {
     const form = useRef()
-    const [feedbackMessage, setFeedbackMessage] = useState("")
+    const [feedback, setFeedback] = useState(null)
 
     const [formData, setFormData] = useState({
         name: "",
@@ -19,6 +23,7 @@ const Contact = () => {
             ...prev,
             [name]: value,
         }))
+        if (feedback) setFeedback(null)
     }
 
     const isFormValid = () => {
@@ -32,10 +37,11 @@ const Contact = () => {
 
     const enviarEmail = (e) => {
         e.preventDefault()
+        setFeedback(null)
 
-        emailjs.sendForm('service_sy1h11w', 'template_pygkxlp', form.current, 'EJ9jNFgI_lFBXwS_r')
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
             .then(() => {
-                setFeedbackMessage("✅ Mensagem enviada com sucesso!")
+                setFeedback({ type: "success", text: "Mensagem enviada com sucesso!" })
                 form.current.reset()
                 setFormData({
                     name: "",
@@ -43,111 +49,114 @@ const Contact = () => {
                     subject: "",
                     message: "",
                 })
-                setTimeout(() => setFeedbackMessage(""), 5000)
             })
             .catch(() => {
-                setFeedbackMessage("❌ Erro ao enviar, tente novamente.")
-                setTimeout(() => setFeedbackMessage(""), 5000)
+                setFeedback({ type: "error", text: "Erro ao enviar, tente novamente." })
             })
     }
 
     return (
-        <div className="bg-backgound min-h-screen">
-            <div className="pt-10 pb-10 mx-16 flex justify-center flex-col items-center gap-10 font-semibold text-2xl md:text-4xl text-details">
-                Minhas Redes
-                <div className="flex gap-24">
-                    <a href="https://wa.me/5511950776623?text=Ol%C3%A1%2C%20Misha!%20Gostaria%20de%20conversar%20sobre%2E%2E%2E" target="_blank" rel="noopener noreferrer">
-                        <LogoZap className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
-                    </a>
-                    <a href="https://www.instagram.com/imnotmiisha?igsh=MWxjZG5yejJheGVteQ==" target="_blank" rel="noopener noreferrer">
-                        <LogoInsta className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/danielle-cordeiro-%E3%85%A4-33543b250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
-                        <LogoLinkedin className="w-10 h-10 md:w-14 md:h-14 hover:cursor-pointer text-details hover:text-hoverDetail transition-all duration-300" />
-                    </a>
-
-                </div>
+        <section className="page-container section-y">
+            <div className="flex flex-col gap-3">
+                <span className="eyebrow" aria-hidden="true"></span>
+                <h1 className="heading-section">Contato</h1>
             </div>
-            <div className="bg-bgSecondary px-24 py-12 flex flex-col text-details justify-center items-center gap-6 relative overflow-hidden mb-10">
-                <div className="absolute top-0 left-0 right-0 h-12 
-                 bg-gradient-to-b from-backgound/70 to-transparent 
-                 backdrop-blur-sm"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-12 
-                 bg-gradient-to-t from-backgound/70 to-transparent 
-                 backdrop-blur-sm"></div>
-                <section className="flex flex-col gap-4 h-auto w-[350px] md:w-[800px] p-4 relative z-10">
-                    <form ref={form} onSubmit={enviarEmail} className="flex flex-col">
-                        <h2 className="font-semibold text-lg md:text-2xl flex justify-center md:mb-2">
+            <div className="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12 lg:gap-12">
+                <div className="lg:col-span-4">
+                    <h2 className="font-display text-title font-semibold text-content">Minhas Redes</h2>
+                    <div className="mt-5 flex gap-3">
+                        <a href="https://wa.me/5511950776623?text=Ol%C3%A1%2C%20Misha!%20Gostaria%20de%20conversar%20sobre%2E%2E%2E" target="_blank" rel="noopener noreferrer" className={socialTileClass}>
+                            <LogoZap className="h-7 w-7" aria-hidden="true" focusable="false" />
+                            <span className="sr-only">WhatsApp (abre em nova aba)</span>
+                        </a>
+                        <a href="https://www.instagram.com/imnotmiisha?igsh=MWxjZG5yejJheGVteQ==" target="_blank" rel="noopener noreferrer" className={socialTileClass}>
+                            <LogoInsta className="h-7 w-7" aria-hidden="true" focusable="false" />
+                            <span className="sr-only">Instagram (abre em nova aba)</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/danielle-cordeiro-%E3%85%A4-33543b250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className={socialTileClass}>
+                            <LogoLinkedin className="h-7 w-7" aria-hidden="true" focusable="false" />
+                            <span className="sr-only">LinkedIn (abre em nova aba)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <section className="card p-5 sm:p-8 lg:col-span-8">
+                    <form ref={form} onSubmit={enviarEmail} className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                        <h2 className="font-display text-title font-semibold text-content md:col-span-2">
                             Envie uma mensagem
                         </h2>
 
-                        <div className="flex flex-col md:flex-row md:gap-10 justify-center">
-                            <div className="input-group flex-1">
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
-                                    placeholder=" "
-                                    required
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="name">Nome</label>
-                            </div>
-
-                            <div className="input-group flex-1">
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
-                                    placeholder=" "
-                                    required
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="email">E-mail</label>
-                            </div>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="name" className="field-label">Nome</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                autoComplete="name"
+                                className="field-input"
+                                required
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
                         </div>
 
-                        <div className="input-group">
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="email" className="field-label">E-mail</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                autoComplete="email"
+                                className="field-input"
+                                required
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="flex flex-col gap-2 md:col-span-2">
+                            <label htmlFor="subject" className="field-label">Assunto</label>
                             <input
                                 type="text"
                                 id="subject"
                                 name="subject"
-                                className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details"
-                                placeholder=" "
+                                className="field-input"
                                 required
                                 value={formData.subject}
                                 onChange={handleChange}
                             />
-                            <label htmlFor="subject">Assunto</label>
                         </div>
 
-                        <div className="input-group textarea-group">
+                        <div className="flex flex-col gap-2 md:col-span-2">
+                            <label htmlFor="message" className="field-label">Mensagem</label>
                             <textarea
                                 id="message"
                                 name="message"
-                                className="py-3 px-4 rounded-xl border-2 border-gray-300 text-black w-full focus:border-details min-h-[150px]"
-                                placeholder=" "
+                                className="field-input min-h-[9.5rem] resize-y"
                                 required
                                 value={formData.message}
                                 onChange={handleChange}
                             />
-                            <label htmlFor="message">Mensagem</label>
                         </div>
 
-                        {feedbackMessage && (
-                            <p className={`text-center font-medium ${feedbackMessage.startsWith("✅") ? "text-green-600" : "text-red-600"}`}>
-                                {feedbackMessage}
-                            </p>
-                        )}
+                        <p
+                            role="status"
+                            className={`flex items-center gap-2 rounded-control border px-4 py-3 text-body font-medium empty:sr-only md:col-span-2 ${feedback?.type === "error" ? "border-feedback-error/40 bg-feedback-error/10 text-feedback-error" : "border-feedback-success/40 bg-feedback-success/10 text-feedback-success"}`}
+                        >
+                            {feedback && (
+                                <>
+                                    {feedback.type === "success"
+                                        ? <CheckCircleIcon size={20} weight="fill" className="shrink-0" aria-hidden="true" focusable="false" />
+                                        : <WarningCircleIcon size={20} weight="fill" className="shrink-0" aria-hidden="true" focusable="false" />}
+                                    {feedback.text}
+                                </>
+                            )}
+                        </p>
 
-                        <div className="flex justify-center items-center mt-4">
+                        <div className="md:col-span-2">
                             <button
                                 type="submit"
-                                className="py-3 px-6 rounded-full w-60 bg-details hover:bg-hoverDetail transition-all duration-300 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-details"
+                                className="btn btn-primary btn-lg w-full sm:w-auto sm:min-w-[14rem]"
                                 disabled={!isFormValid()}
                             >
                                 Enviar mensagem
@@ -156,7 +165,7 @@ const Contact = () => {
                     </form>
                 </section>
             </div>
-        </div>
+        </section>
     )
 }
 

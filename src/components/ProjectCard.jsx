@@ -4,35 +4,31 @@ import { LogoGit, LogoInternet } from "../svgs/Images"
 
 const ProjectCard = ({ image, title, description, delay, linkInternet, linkGitHub }) => {
   return (
-    <div
-      className="bg-bgSecondary rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full"
-      data-aos="fade-up"
-      data-aos-delay={delay}
-    >
-      <div className="aspect-video w-full overflow-hidden bg-gray-800">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-        />
-      </div>
-
-      <div className="flex flex-col flex-grow p-6">
-        <h3 className="text-xl font-bold text-details mb-3">{title}</h3>
-        <p className="text-principalText text-base opacity-80 mb-4 flex-grow">
-          {description}
-        </p>
-
-        <div className="flex gap-4 mt-auto pt-2">
-          <a href={linkGitHub} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-            <LogoGit className='w-6 h-6 text-primaryButton hover:text-hoverPB' />
-          </a>
-          <a href={linkInternet} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-            <LogoInternet className='w-6 h-6 text-primaryButton hover:text-hoverPB' />
-          </a>
+    <li data-aos="fade-up" data-aos-delay={delay} className="h-full">
+      <article className="card group flex h-full flex-col has-[a:focus-visible]:border-action/40">
+        <div className="aspect-video w-full overflow-hidden border-b border-line-subtle bg-surface-raised">
+          <img
+            src={image}
+            alt={`Captura de tela do projeto ${title}`}
+            className="h-full w-full object-cover transition-transform duration-500 ease-out-quart motion-safe:group-hover:scale-[1.03]"
+          />
         </div>
-      </div>
-    </div>
+        <div className="flex flex-1 flex-col p-6">
+          <h2 className="font-display text-title-sm font-bold text-content">{title}</h2>
+          <p className="mt-3 flex-1 text-body text-content-secondary">{description}</p>
+          <div className="mt-6 flex gap-2">
+            <a href={linkGitHub} target="_blank" rel="noopener noreferrer" className="btn-icon">
+              <LogoGit className="h-5 w-5" aria-hidden="true" focusable="false" />
+              <span className="sr-only">Código do projeto {title} no GitHub (abre em nova aba)</span>
+            </a>
+            <a href={linkInternet} target="_blank" rel="noopener noreferrer" className="btn-icon">
+              <LogoInternet className="h-5 w-5" aria-hidden="true" focusable="false" />
+              <span className="sr-only">Site do projeto {title} (abre em nova aba)</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </li>
   )
 }
 
