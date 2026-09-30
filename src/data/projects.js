@@ -48,7 +48,15 @@ export const projects = [
   },
   {
     title: "Desconecta AI",
-    description: "Projeto desenvolvedo para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo.",
+    description: "Projeto desenvolvido para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo.",
+    year: 2025,
+    image: desconectaai,
+    linkInternet: "https://desconecta-ai.vercel.app/",
+    linkGitHub: "https://github.com/mimiisha/projeto-desconecta.ai",
+  },
+  {
+    title: "Desconecta AI",
+    description: "Projeto desenvolvido para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo.",
     year: 2025,
     image: desconectaai,
     linkInternet: "https://desconecta-ai.vercel.app/",

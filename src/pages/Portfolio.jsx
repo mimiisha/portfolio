@@ -9,6 +9,7 @@ import joguinhonsecreto from "../imgs/joguinhonsecreto.png"
 import calculadora from "../imgs/calculadora.png"
 import jogodavelha from "../imgs/jogodavelha.png"
 import desconectaai from "../imgs/desconectaai.png"
+import cardapio from "../imgs/cardapio.png"
 
 const Portfolio = () => {
     const shouldReduceMotion = useReducedMotion()
@@ -63,9 +64,16 @@ const Portfolio = () => {
          {
             image: desconectaai,
             title: "Desconecta AI",
-            description: "Projeto desenvolvedo para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo. - 2025",
+            description: "Projeto desenvolvido para obtenção de nota na faculdade, que oferece ferramentas para gestão de tempo, pausas programadas em full-screen, testes e documentários que auxiliam o usuário a reduzir o tempo de tela excessivo. - 2025",
             linkInternet: "https://desconecta-ai.vercel.app/",
             linkGitHub: "https://github.com/mimiisha/projeto-desconecta.ai"
+        },
+        {
+            image: cardapio,
+            title: "Cardápio Delícias da Cá",
+            description: "Desenvolvimento de um cardápio digital para auxiliar uma pequena empreendedora na divulgação dos produtos e no gerenciamento de pedidos. A plataforma foi desenvolvida com React, JSX e Tailwind CSS, utilizando o Firebase como banco de dados, com foco em uma experiência intuitiva, responsiva e prática para clientes e administradora. — 2026",
+            linkInternet: "https://cardapio-deliciasca.vercel.app/",
+            linkGitHub: "https://github.com/mimiisha/cardapio-deliciasca"
         },
     ]
 
